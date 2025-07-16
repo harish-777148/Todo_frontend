@@ -60,16 +60,16 @@ export default function Todo() {
           placeholder="Enter todo"
           className="border w-sm p-2 rounded-xl"
         />
-        <button onClick={addTodo} className="border p-2 m-2 bg-green-500 rounded-sm  hover:bg-black hover:text-white">{editId ? <MdTipsAndUpdates /> : <IoMdAdd />}</button>
+        <button onClick={addTodo} className="border p-2 m-2 bg-green-500 rounded-sm  hover:bg-black hover:cursor-pointer hover:text-white active:scale-90 transition-transform duration-150">{editId ? <MdTipsAndUpdates /> : <IoMdAdd />}</button>
       </div>
       <ul>
         {todos.map((todo) => (
           <li key={todo._id}>
             {todo.text}
-            <button onClick={() => startEdit(todo)} className="border m-2 p-2 rounded-sm bg-amber-400 shadow-lg shadow-blue-700">
+            <button onClick={() => startEdit(todo)} className="border m-2 p-2 rounded-sm bg-amber-400 hover:cursor-pointer hover:text-white active:scale-90 transition-transform duration-150">
               <MdModeEditOutline />
             </button>
-            <button onClick={() => deleteTodo(todo._id)}className="border m-2 p-2 rounded-sm bg-red-400 ">
+            <button onClick={() => deleteTodo(todo._id)}className="border m-2 p-2 rounded-sm bg-red-400 hover:cursor-pointer hover:text-white active:scale-90 transition-transform duration-150">
               <MdDelete />
             </button>
           </li>
