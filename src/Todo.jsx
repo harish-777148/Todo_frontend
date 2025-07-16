@@ -1,6 +1,10 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { IoMdAdd } from "react-icons/io";
+import { MdTipsAndUpdates } from "react-icons/md";
+import { MdModeEditOutline } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 const baseURL = "https://backend-z1th.onrender.com/todos";
 
@@ -56,17 +60,17 @@ export default function Todo() {
           placeholder="Enter todo"
           className="border w-sm p-2 rounded-xl"
         />
-        <button onClick={addTodo} className="border p-2 m-2 bg-green-500 rounded-sm w-20 hover:bg-black hover:text-white">{editId ? "Update" : "Add"}</button>
+        <button onClick={addTodo} className="border p-2 m-2 bg-green-500 rounded-sm  hover:bg-black hover:text-white">{editId ? <MdTipsAndUpdates /> : <IoMdAdd />}</button>
       </div>
       <ul>
         {todos.map((todo) => (
           <li key={todo._id}>
             {todo.text}
-            <button onClick={() => startEdit(todo)} className="border m-2 p-2 rounded-sm w-15 bg-amber-400 shadow-lg shadow-blue-700">
-              Edit
+            <button onClick={() => startEdit(todo)} className="border m-2 p-2 rounded-sm bg-amber-400 shadow-lg shadow-blue-700">
+              <MdModeEditOutline />
             </button>
-            <button onClick={() => deleteTodo(todo._id)}className="border m-2 p-2 rounded-sm w-15 bg-red-400 ">
-              Delete
+            <button onClick={() => deleteTodo(todo._id)}className="border m-2 p-2 rounded-sm bg-red-400 ">
+              <MdDelete />
             </button>
           </li>
         ))}
